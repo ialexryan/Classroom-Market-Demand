@@ -1,0 +1,35 @@
+<html>
+<head>
+    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+    <script>
+        var databaseRef = new Firebase("https://sweltering-inferno-1326.firebaseIO.com");
+        var scoresRef = databaseRef.child("scores/round1");
+        var archiveRef = databaseRef.child("archive/round1");
+        var money = 5;
+        var costSnickers = 0.5;
+        var costTwix = 1.25;
+        var numSnickers = 0;
+        var numTwix = 0;
+        function afterSubmit() {
+            window.location = "submit2.html";
+        }
+    </script>
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <span>$</span><span id="money"></span>
+    <br />
+    <span>Snickers ($0.50): </span><span id="snickersCount"></span>
+    <button onclick="decrementSnickers()">-</button>
+    <button onclick="incrementSnickers()">+</button>
+    <br />
+    <span>Twix ($1.25): </span><span id="twixCount"></span>
+    <button onclick="decrementTwix()">-</button>
+    <button onclick="incrementTwix()">+</button>
+    <br />
+
+    <button onclick="finalize(numSnickers,numTwix)">submit</button>
+
+    <script>initialPrint();</script>
+</body>
+</html>
